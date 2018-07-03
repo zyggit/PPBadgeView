@@ -27,8 +27,12 @@ public extension PP where Base: UITabBarItem {
     ///
     /// - Parameter text: 文本字符串
     public func addBadge(text: String) {
-        _bottomView.pp.addBadge(text: text)
-        _bottomView.pp.moveBadge(x: 4, y: 3)
+        if text.isEmpty {
+            hiddenBadge()
+        }else{
+            _bottomView.pp.addBadge(text: text)
+            _bottomView.pp.moveBadge(x: 4, y: 3)
+        }
     }
     
     /// 添加带数字的Badge, 默认右上角,红色,18pts

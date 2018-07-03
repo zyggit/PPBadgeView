@@ -27,7 +27,12 @@ public extension PP where Base: UIBarButtonItem {
     ///
     /// - Parameter text: 文本字符串
     public func addBadge(text: String) {
-        _bottomView.pp.addBadge(text: text)
+        if text.isEmpty {
+            hiddenBadge()
+        }else{
+            
+            _bottomView.pp.addBadge(text: text)
+        }
     }
     
     /// 添加带数字的Badge, 默认右上角,红色,18pts
